@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 版本更新 -->
+<!-- 1.null -->
+<!-- 2024.4.18 -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+
+    <style>
+        /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+        /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+        /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+        @font-face {
+            font-family: 'iconfont';
+            /* Project id 4497732 */
+            src: url('//at.alicdn.com/t/c/font_4497732_fsx91j3cif5.woff2?t=1712501313869') format('woff2'),
+                url('//at.alicdn.com/t/c/font_4497732_fsx91j3cif5.woff?t=1712501313869') format('woff'),
+                url('//at.alicdn.com/t/c/font_4497732_fsx91j3cif5.ttf?t=1712501313869') format('truetype');
+        }
+
+        .iconfont {
+            font-family: iconfont !important;
+            font-size: 20px;
+        }
+
+        * {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+            user-select: none;
+            transition: all 1s;
+            font-family: 微软雅黑;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+        }
+
+
+
+        html {
+            min-width: 314px;
+            background-color: #202124;
+            width: 100%;
+            height: 100%;
+        }
+
+        #box {
+            overflow: hidden;
+            width: 100%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+
+        body {
+            opacity: 0;
+            /* display: flex; */
+
+            /* align-items: center; */
+            /* flex-direction: column; */
+            width: 100%;
+            height: 100%;
+        }
+
+        #header {
+            align-items: center;
+            color: #fff;
+            min-height: 48px;
+            width: 100%;
+            display: flex;
+            justify-content: right;
+        }
+
+        #header a {
+
+            font-size: 0.9rem;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+        }
+
+        input {
+            color: #fff;
+            border: none;
+            padding: 0 10px;
+            width: 582px;
+            height: 46px;
+
+            outline: none;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        #search_1:hover {
+            background-color: rgb(48, 49, 52);
+        }
+
+        #search {
+            width: 100%;
+            /* height: 100%; */
+            display: flex;
+            /* background-color: red; */
+            align-items: center;
+            justify-content: center;
+        }
+
+        #title:hover {
+            user-select: none;
+            color: rgba(95, 99, 104, .1);
+        }
+
+        /* #search_1:focus>* {
+            background-color: red;
+        } */
+
+
+        #search_1:focus-within {
+            background-color: rgb(95, 99, 104);
+        }
+
+        #search_1 {
+
+            user-select: none;
+            color: #fff;
+            border: 1px solid rgb(95, 99, 104);
+            display: flex;
+            /* background-color: red; */
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            border-radius: 50px;
+        }
+
+        #ico {
+            user-select: none;
+            font-size: 1.3rem;
+            padding: 14px;
+            color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 46px;
+        }
+
+        #search_1 div:nth-child(3) {
+            display: flex;
+
+        }
+
+        #search_1 div:nth-child(3) span:hover {
+            user-select: none;
+            cursor: pointer;
+            color: skyblue;
+        }
+
+        #search_1 div:nth-child(3) span {
+            margin-left: 5px;
+        }
+
+
+
+        #title {
+
+            margin: 30px 0;
+            user-select: none;
+            cursor: pointer;
+            font-family: 微软雅黑;
+            color: #fff;
+            font-weight: 1000;
+            width: 100%;
+            text-align: center;
+            font-size: 5rem;
+
+        }
+
+        #type {
+            z-index: 10;
+            margin-top: 30px;
+            /* height: 10%; */
+            width: 600px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #type a:hover {
+            background-color: rgb(95, 99, 104);
+
+        }
+
+        #type a {
+            z-index: 10;
+            margin: 6px 6px;
+            color: #fff;
+            /* display: inline-block; */
+            /* width: 2rem; */
+            /* height: 2rem; */
+            font-size: 2rem;
+            text-decoration: none;
+            background-color: rgba(95, 99, 104, .1);
+            padding: 8px;
+            border-radius: 10px;
+            width: 50px;
+        }
+
+        footer {
+            z-index: -1;
+
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #5f5e5e;
+            user-select: none;
+        }
+
+        @media (max-width: 700px) {
+            input {
+                width: 400px;
+
+            }
+
+            #type {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            input {
+                width: 100%;
+
+            }
+
+            #type {
+                width: 80%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <a href="#">设置</a>
+        <a href="#">关于本页</a>
+    </div>
+    <div id="box">
+        <div id="title">Search</div>
+        <div id="search">
+            <div id="search_1">
+                <div class="iconfont">&#xe63c;</div>
+                <div><input id="input__" type="text"></div>
+                <div>
+                    <span class="iconfont" onclick="clear_()">&#xe8e7;</span>
+                    <span class="iconfont" onclick="search_(1);">&#xe64b;</span>
+                </div>
+            </div>
+
+        </div>
+        <div id="type">
+            <a href="#百度搜索" onclick="search_(1)" title="百度搜索" class="iconfont">&#xe609;</a>
+            <a href="#谷歌搜索" onclick="search_(2)" title="谷歌搜索" class="iconfont">&#xe60f;</a>
+            <a href="#百度贴吧搜索" onclick="search_(3)" title="百度贴吧搜索" class="iconfont">&#xe612;</a>
+            <a href="#搜狗搜素" onclick="search_(4)" title="搜狗搜素" class="iconfont">&#xe711;</a>
+            <a href="#bilibili搜索" onclick="search_(5)" title="bilibili搜索" class="iconfont">&#xe60b;</a>
+            <a href="#yotube搜索" onclick="search_(6)" title="yotube搜索" class="iconfont">&#xe618;</a>
+            <a href="#百度翻译" onclick="search_(7)" title="百度翻译" class="iconfont">&#xe600;</a>
+            <a href="#chatGpt" onclick="search_(8)" title="chatGpt" class="iconfont">&#xe6bf;</a>
+        </div>
+    </div>
+    <footer>
+        灵感来自于[谷歌搜索引擎2024版本搜索页]
+        <br>
+        Copyright©2024 搜索单页 Powered by http://s.qingshani.top
+    </footer>
+</body>
+
+</html>
+
+<script>
+    function clear_() {
+        document.getElementById("input__").value = " ";
+    }
+    var json = {
+        "1": "https://www.baidu.com/s?ie=UTF-8&wd=${word}",
+        "2": "https://www.google.com.hk/search?q=${word}",
+        "3": "https://tieba.baidu.com/f/search/res?ie=utf-8&qw=${word}",
+        "4": "https://www.sogou.com/web?query=${word}",
+        "5": "https://search.bilibili.com/all?keyword=${word}",
+        "6": "https://www.youtube.com/results?search_query=${word}",
+        "7": "https://fanyi.baidu.com/mtpe-individual/multimodal?aldtype=16047&query=${word}&keyfrom=baidu&smartresult=dict&lang=auto2zh&ext_channel=Aldtype#/",
+        "8": "http://gpt.qingshani.top",
+    };
+
+
+    window.onload = () => {
+        clear_();
+        document.getElementById("input__").focus();
+        document.getElementsByTagName("body")[0].style.opacity = 1;
+    };
+
+    function search_(id) {
+        var value = document.getElementById("input__").value;
+        if (value == "") {
+            return;
+        }
+        var href = json[id].replace(/\${word}/g, value);
+        window.location.href = href;
+    }
+
+    document.addEventListener("keydown", (e) => {
+        document.getElementById("input__").focus();
+
+        if (e.keyCode === 13) {
+            search_(1);
+        };
+
+
+    });
+
+
+
+</script>
