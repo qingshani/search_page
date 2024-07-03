@@ -1,0 +1,103 @@
+  /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+  /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+  /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+
+
+
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    font-family: 微软雅黑;
+  }
+
+  #eyes {
+    background-color: #eea2a4;
+  }
+
+  html {
+    background-color: #eea2a4;
+    background-image: url(../image/5.jpg);
+    background-size: cover;
+  }
+
+
+
+
+
+  #header {
+    color: #000;
+  }
+
+  #header a {
+    color: #fff;
+  }
+
+  input {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  #search_1:hover {
+    background-color: #eea2a4;
+  }
+
+
+
+  #title:hover {
+
+    color: rgba(95, 99, 104, .1);
+  }
+
+
+  #search_1:focus-within {
+    background-color: #eea2a4;
+  }
+
+  #search_1 {
+    color: #fff;
+    border: 1px solid rgb(206, 87, 109);
+    background-color: #eea2a4;
+  }
+
+  #ico {
+    color: gray;
+  }
+
+
+
+  #search_1 div:nth-child(3) span:hover {
+
+    color: skyblue;
+  }
+
+
+
+
+  #title {
+
+    font-family: 微软雅黑;
+    color: #fff;
+
+
+  }
+
+
+
+  #type a:hover {
+
+    background-color: #ec8aa4;
+  }
+
+  #type a {
+
+    color: #fff;
+
+    background-color: #f0a1a8;
+
+  }
+
+  footer {
+
+    color: rgb(212, 135, 141);
+
+  }
